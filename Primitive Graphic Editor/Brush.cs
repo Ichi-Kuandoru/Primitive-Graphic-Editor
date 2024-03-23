@@ -35,4 +35,99 @@ namespace Primitive_Graphic_Editor
             }
         }
     }
+
+    class CircleBrush : Brush
+    {
+        public CircleBrush(Color brushColor, int size)
+            : base(brushColor, size)
+        {
+        }
+        public override void Draw(Bitmap image, int x, int y)
+        {
+            for (int i = x - Size; i <= x + Size; i++)
+            {
+                for (int j = y - Size; j <= y + Size; j++)
+                {
+                    if ((i - x) * (i - x) + (j - y) * (j - y) <= Size * Size)
+                    {
+                        image.SetPixel(i, j, BrushColor);
+                    }
+                }
+            }
+        }
+    }
+
+    class StarBrush : Brush
+    {
+        public StarBrush(Color brushColor, int size)
+            : base(brushColor, size)
+        {
+        }
+        public override void Draw(Bitmap image, int x, int y)
+        {
+//=========================================================================================================================================================      
+            int vertices = 5; // Количество вершин звезды
+              double angleIncrement = Math.PI * 2 / vertices; // Угол между вершинами
+
+              List<PointF> starPoints = new List<PointF>();
+
+              double currentAngle = -Math.PI / 2; // Начальный угол
+
+              for (int i = 0; i < vertices * 2; i++)
+              {
+                  double radius = (i % 2 == 0) ? Size : Size / 2; // Чередование радиусов для вершин
+
+                  float px = x + (float)(radius * Math.Cos(currentAngle)); // Преобразование в декартовы координаты
+                  float py = y + (float)(radius * Math.Sin(currentAngle));
+
+                  starPoints.Add(new PointF(px, py));
+
+                  currentAngle += angleIncrement;
+              }
+
+              using (Graphics g = Graphics.FromImage(image))
+              {
+                  g.FillPolygon(new SolidBrush(BrushColor), starPoints.ToArray()); // Рисование звезды
+              }
+//=========================================================================================================================================================      
+ 
+
+
+        }
+    }
+
+    class HeartBrush : Brush
+    {
+        public HeartBrush(Color brushColor, int size)
+            : base(brushColor, size)
+        {
+        }
+        public override void Draw(Bitmap image, int x, int y)
+        {
+            List<PointF> heartPoints = new List<PointF>();
+
+            for (double theta = -Math.PI; theta <= 0; theta += 0.01)
+            {
+                double r = 1 - Math.Sin(theta);
+                float px = x + (float)(r * Math.Cos(theta) * Size); // Преобразование в декартовы координаты
+                float py = y - (float)(r * Math.Sin(theta) * Size);
+                heartPoints.Add(new PointF(px, py));
+            }
+
+            for (double theta = 0; theta <= Math.PI; theta += 0.01)
+            {
+                double r = 1 - Math.Sin(theta);
+                float px = x + (float)(r * Math.Cos(theta) * Size); // Преобразование в декартовы координаты
+                float py = y - (float)(r * Math.Sin(theta) * Size);
+                heartPoints.Add(new PointF(px, py));
+            }
+
+            using (Graphics g = Graphics.FromImage(image))
+            {
+                g.FillPolygon(new SolidBrush(BrushColor), heartPoints.ToArray()); // Рисование сердца
+            }
+        }
+    }
+
+
 }

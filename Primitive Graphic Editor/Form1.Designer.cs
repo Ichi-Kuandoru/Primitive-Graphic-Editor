@@ -148,6 +148,7 @@
             button3.TabIndex = 3;
             button3.Text = "Круг";
             button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
             // 
             // button2
             // 
@@ -155,8 +156,9 @@
             button2.Name = "button2";
             button2.Size = new Size(75, 23);
             button2.TabIndex = 2;
-            button2.Text = "Прямоуг";
+            button2.Text = "Сердце";
             button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // button1
             // 
@@ -174,7 +176,7 @@
             trackBar1.Dock = DockStyle.Top;
             trackBar1.LargeChange = 3;
             trackBar1.Location = new Point(3, 19);
-            trackBar1.Maximum = 20;
+            trackBar1.Maximum = 200;
             trackBar1.Minimum = 5;
             trackBar1.Name = "trackBar1";
             trackBar1.Size = new Size(159, 45);

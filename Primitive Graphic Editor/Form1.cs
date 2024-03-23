@@ -60,9 +60,19 @@ namespace Primitive_Graphic_Editor
             _selectedBrush = new QuadBrush(SelectedColor, SelectedSize);
         }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            _selectedBrush = new HeartBrush(SelectedColor, SelectedSize);
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            _selectedBrush = new CircleBrush(SelectedColor, SelectedSize);
+        }
+
         private void button4_Click(object sender, EventArgs e)
         {
-
+            _selectedBrush = new StarBrush(SelectedColor, SelectedSize);
         }
         // Обработчик события при нажатии кнопки мыши
         private void pictureBox1_Click(object sender, MouseEventArgs e)
