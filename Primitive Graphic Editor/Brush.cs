@@ -129,5 +129,49 @@ namespace Primitive_Graphic_Editor
         }
     }
 
+    class TransparentQuadBrush : Brush
+    {
+        public TransparentQuadBrush(Color brushColor, int size)
+            : base(brushColor, size)
+        {
+        }
+
+        public override void Draw(Bitmap image, int x, int y)
+        {
+            for (int y0 = y - Size; y0 < y + Size; ++y0)
+            {
+                for (int x0 = x - Size; x0 < x + Size; ++x0)
+                {
+                    Color currentColor = image.GetPixel(x0, y0);
+                    int newR = (currentColor.R + BrushColor.R) / 2; // Пример прозрачности: усреднение значений красного
+                    int newG = (currentColor.G + BrushColor.G) / 2; // Пример прозрачности: усреднение значений зеленого
+                    int newB = (currentColor.B + BrushColor.B) / 2; // Пример прозрачности: усреднение значений синего
+                    Color newColor = Color.FromArgb(newR, newG, newB);
+                    image.SetPixel(x0, y0, newColor);
+                }
+            }
+        }
+    }
+
+    /*class EraserBrush : Brush
+    {
+        public EraserBrush(int size)
+            : base(Color.Transparent, size)
+        {
+        }
+
+        public override void Draw(Bitmap image, int x, int y)
+        {
+            for (int y0 = y - Size; y0 < y + Size; ++y0)
+            {
+                for (int x0 = x - Size; x0 < x + Size; ++x0)
+                {
+                    image.SetPixel(x0, y0, Color.Transparent); // Устанавливаем прозрачный цвет для "стирания"
+                }
+            }
+        }
+    }*/
+
+
 
 }

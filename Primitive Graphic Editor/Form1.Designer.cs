@@ -38,6 +38,8 @@
             оПрограммеToolStripMenuItem = new ToolStripMenuItem();
             ToolsPanel = new Panel();
             groupBox1 = new GroupBox();
+            button6 = new Button();
+            button5 = new Button();
             button4 = new Button();
             button3 = new Button();
             button2 = new Button();
@@ -58,7 +60,7 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { файлToolStripMenuItem, справкаToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(577, 24);
+            menuStrip1.Size = new Size(929, 24);
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -112,11 +114,13 @@
             ToolsPanel.Dock = DockStyle.Left;
             ToolsPanel.Location = new Point(0, 24);
             ToolsPanel.Name = "ToolsPanel";
-            ToolsPanel.Size = new Size(165, 255);
+            ToolsPanel.Size = new Size(165, 462);
             ToolsPanel.TabIndex = 1;
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(button6);
+            groupBox1.Controls.Add(button5);
             groupBox1.Controls.Add(button4);
             groupBox1.Controls.Add(button3);
             groupBox1.Controls.Add(button2);
@@ -129,6 +133,26 @@
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             groupBox1.Text = "Выбор кисти";
+            // 
+            // button6
+            // 
+            button6.Location = new Point(12, 211);
+            button6.Name = "button6";
+            button6.Size = new Size(147, 23);
+            button6.TabIndex = 6;
+            button6.Text = "Ластик";
+            button6.UseVisualStyleBackColor = true;
+            button6.Click += button6_Click;
+            // 
+            // button5
+            // 
+            button5.Location = new Point(6, 128);
+            button5.Name = "button5";
+            button5.Size = new Size(75, 23);
+            button5.TabIndex = 5;
+            button5.Text = "прозрач";
+            button5.UseVisualStyleBackColor = true;
+            button5.Click += button5_Click;
             // 
             // button4
             // 
@@ -174,33 +198,34 @@
             // 
             trackBar1.AutoSize = false;
             trackBar1.Dock = DockStyle.Top;
-            trackBar1.LargeChange = 3;
+            trackBar1.LargeChange = 50;
             trackBar1.Location = new Point(3, 19);
-            trackBar1.Maximum = 200;
-            trackBar1.Minimum = 5;
+            trackBar1.Maximum = 100;
+            trackBar1.Minimum = 25;
             trackBar1.Name = "trackBar1";
             trackBar1.Size = new Size(159, 45);
             trackBar1.TabIndex = 0;
-            trackBar1.Value = 5;
+            trackBar1.Value = 25;
             // 
             // DrawPanel
             // 
+            DrawPanel.AutoScroll = true;
             DrawPanel.Controls.Add(pictureBox1);
             DrawPanel.Dock = DockStyle.Fill;
             DrawPanel.Location = new Point(165, 24);
             DrawPanel.Name = "DrawPanel";
-            DrawPanel.Size = new Size(412, 255);
+            DrawPanel.Size = new Size(764, 462);
             DrawPanel.TabIndex = 2;
             // 
             // pictureBox1
             // 
-            pictureBox1.Dock = DockStyle.Fill;
             pictureBox1.Location = new Point(0, 0);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(412, 255);
+            pictureBox1.Size = new Size(728, 429);
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
-            pictureBox1.MouseClick += pictureBox1_Click;
+            pictureBox1.MouseClick += pictureBox1_MouseDown;
+            pictureBox1.MouseDown += pictureBox1_MouseDown;
             pictureBox1.MouseMove += pictureBox1_MouseMove;
             pictureBox1.MouseUp += pictureBox1_MouseUp;
             // 
@@ -208,7 +233,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(577, 279);
+            ClientSize = new Size(929, 486);
             Controls.Add(DrawPanel);
             Controls.Add(ToolsPanel);
             Controls.Add(menuStrip1);
@@ -245,5 +270,7 @@
         private Button button2;
         private Button button1;
         private PictureBox pictureBox1;
+        private Button button5;
+        private Button button6;
     }
 }

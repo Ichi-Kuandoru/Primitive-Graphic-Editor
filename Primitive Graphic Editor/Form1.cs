@@ -52,7 +52,7 @@ namespace Primitive_Graphic_Editor
         public Form1()
         {
             InitializeComponent();
-            CreateBlank(pictureBox1.Width, pictureBox1.Height);
+            CreateBlank(pictureBox1.Width = 2000, pictureBox1.Height = 1000);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -74,8 +74,18 @@ namespace Primitive_Graphic_Editor
         {
             _selectedBrush = new StarBrush(SelectedColor, SelectedSize);
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            _selectedBrush = new TransparentQuadBrush(SelectedColor, SelectedSize);
+        }
+        private void button6_Click(object sender, EventArgs e)
+        {
+            /*_selectedBrush = new EraserBrush(SelectedColor, SelectedSize);*/
+        }
+
         // Обработчик события при нажатии кнопки мыши
-        private void pictureBox1_Click(object sender, MouseEventArgs e)
+        private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
             if (_selectedBrush == null)
             {
@@ -105,5 +115,7 @@ namespace Primitive_Graphic_Editor
                 pictureBox1.Refresh();
             }
         }
+
+
     }
 }
