@@ -24,16 +24,22 @@ namespace Primitive_Graphic_Editor
             : base(brushColor, size) 
         { 
         }
-        public override void Draw(Bitmap image,int x,int y)
+        public override void Draw(Bitmap image, int x, int y)
         {
-            for (int y0 = y - Size; y0 < y + Size; ++y0)
+            int startX = Math.Max(0, x - Size);
+            int endX = Math.Min(image.Width - 1, x + Size);
+            int startY = Math.Max(0, y - Size);
+            int endY = Math.Min(image.Height - 1, y + Size);
+
+            for (int y0 = startY; y0 <= endY; ++y0)
             {
-                for (int x0 = x - Size; x0 < x + Size; ++x0)
+                for (int x0 = startX; x0 <= endX; ++x0)
                 {
-                    image.SetPixel(x0,y0, BrushColor);
+                    image.SetPixel(x0, y0, BrushColor);
                 }
             }
         }
+
     }
 
     class CircleBrush : Brush
@@ -44,9 +50,14 @@ namespace Primitive_Graphic_Editor
         }
         public override void Draw(Bitmap image, int x, int y)
         {
-            for (int i = x - Size; i <= x + Size; i++)
+            int startX = Math.Max(0, x - Size);
+            int endX = Math.Min(image.Width - 1, x + Size);
+            int startY = Math.Max(0, y - Size);
+            int endY = Math.Min(image.Height - 1, y + Size);
+
+            for (int i = startX; i <= endX; i++)
             {
-                for (int j = y - Size; j <= y + Size; j++)
+                for (int j = startY; j <= endY; j++)
                 {
                     if ((i - x) * (i - x) + (j - y) * (j - y) <= Size * Size)
                     {
@@ -55,6 +66,7 @@ namespace Primitive_Graphic_Editor
                 }
             }
         }
+
     }
 
     class StarBrush : Brush
@@ -138,19 +150,28 @@ namespace Primitive_Graphic_Editor
 
         public override void Draw(Bitmap image, int x, int y)
         {
-            for (int y0 = y - Size; y0 < y + Size; ++y0)
+            int startX = Math.Max(0, x - Size);
+            int endX = Math.Min(image.Width - 1, x + Size);
+            int startY = Math.Max(0, y - Size);
+            int endY = Math.Min(image.Height - 1, y + Size);
+
+            for (int y0 = startY; y0 <= endY; ++y0)
             {
-                for (int x0 = x - Size; x0 < x + Size; ++x0)
+                for (int x0 = startX; x0 <= endX; ++x0)
                 {
-                    Color currentColor = image.GetPixel(x0, y0);
-                    int newR = (currentColor.R + BrushColor.R) / 2; // Пример прозрачности: усреднение значений красного
-                    int newG = (currentColor.G + BrushColor.G) / 2; // Пример прозрачности: усреднение значений зеленого
-                    int newB = (currentColor.B + BrushColor.B) / 2; // Пример прозрачности: усреднение значений синего
-                    Color newColor = Color.FromArgb(newR, newG, newB);
-                    image.SetPixel(x0, y0, newColor);
+                    if (x0 >= 0 && x0 < image.Width && y0 >= 0 && y0 < image.Height)
+                    {
+                        Color currentColor = image.GetPixel(x0, y0);
+                        int newR = (currentColor.R + BrushColor.R) / 2; // Пример прозрачности: усреднение значений красного
+                        int newG = (currentColor.G + BrushColor.G) / 2; // Пример прозрачности: усреднение значений зеленого
+                        int newB = (currentColor.B + BrushColor.B) / 2; // Пример прозрачности: усреднение значений синего
+                        Color newColor = Color.FromArgb(newR, newG, newB);
+                        image.SetPixel(x0, y0, newColor);
+                    }
                 }
             }
         }
+
     }
 
     /*class EraserBrush : Brush

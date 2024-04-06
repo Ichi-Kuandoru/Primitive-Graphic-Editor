@@ -1,4 +1,5 @@
 using System.Security.Cryptography;
+using System.Windows.Forms;
 using static System.ComponentModel.Design.ObjectSelectorEditor;
 
 namespace Primitive_Graphic_Editor
@@ -12,7 +13,16 @@ namespace Primitive_Graphic_Editor
 
         Color SelectedColor
         {
-            get { return Color.Black; }
+            get { return colorDialog1.Color; }
+        }
+        private void создатьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ImageSizeForm form = new ImageSizeForm();
+            form.ShowDialog();
+            if (form.Canceled == false)
+            {
+                CreateBlank(form.W, form.H);
+            }
         }
 
         int SelectedSize
@@ -81,7 +91,7 @@ namespace Primitive_Graphic_Editor
         }
         private void button6_Click(object sender, EventArgs e)
         {
-            /*_selectedBrush = new EraserBrush(SelectedColor, SelectedSize);*/
+            _selectedBrush = new QuadBrush(Color.White, SelectedSize);
         }
 
         // Обработчик события при нажатии кнопки мыши
@@ -116,6 +126,15 @@ namespace Primitive_Graphic_Editor
             }
         }
 
-
+        private void button7_Click(object sender, EventArgs e)
+        {
+            //если пользователь выбрал цвет, используем его:
+            if (colorDialog1.ShowDialog() == DialogResult.OK)
+            {
+                //для удобства, подкрашиваем кнопку выбранным цветом
+                button7.BackColor = colorDialog1.Color;
+            }
+        }
     }
 }
+

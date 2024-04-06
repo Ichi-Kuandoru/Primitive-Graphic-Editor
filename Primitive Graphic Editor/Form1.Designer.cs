@@ -37,6 +37,7 @@
             справкаToolStripMenuItem = new ToolStripMenuItem();
             оПрограммеToolStripMenuItem = new ToolStripMenuItem();
             ToolsPanel = new Panel();
+            button7 = new Button();
             groupBox1 = new GroupBox();
             button6 = new Button();
             button5 = new Button();
@@ -47,6 +48,11 @@
             trackBar1 = new TrackBar();
             DrawPanel = new Panel();
             pictureBox1 = new PictureBox();
+            colorDialog1 = new ColorDialog();
+            colorDialog2 = new ColorDialog();
+            colorDialog3 = new ColorDialog();
+            colorDialog4 = new ColorDialog();
+            colorDialog5 = new ColorDialog();
             menuStrip1.SuspendLayout();
             ToolsPanel.SuspendLayout();
             groupBox1.SuspendLayout();
@@ -110,12 +116,22 @@
             // 
             // ToolsPanel
             // 
+            ToolsPanel.Controls.Add(button7);
             ToolsPanel.Controls.Add(groupBox1);
             ToolsPanel.Dock = DockStyle.Left;
             ToolsPanel.Location = new Point(0, 24);
             ToolsPanel.Name = "ToolsPanel";
             ToolsPanel.Size = new Size(165, 462);
             ToolsPanel.TabIndex = 1;
+            // 
+            // button7
+            // 
+            button7.Location = new Point(6, 246);
+            button7.Name = "button7";
+            button7.Size = new Size(153, 204);
+            button7.TabIndex = 1;
+            button7.UseVisualStyleBackColor = true;
+            button7.Click += button7_Click;
             // 
             // groupBox1
             // 
@@ -136,9 +152,9 @@
             // 
             // button6
             // 
-            button6.Location = new Point(12, 211);
+            button6.Location = new Point(6, 211);
             button6.Name = "button6";
-            button6.Size = new Size(147, 23);
+            button6.Size = new Size(153, 23);
             button6.TabIndex = 6;
             button6.Text = "Ластик";
             button6.UseVisualStyleBackColor = true;
@@ -222,6 +238,7 @@
             pictureBox1.Location = new Point(0, 0);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(728, 429);
+            pictureBox1.SizeMode = PictureBoxSizeMode.AutoSize;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
             pictureBox1.MouseClick += pictureBox1_MouseDown;
@@ -246,6 +263,7 @@
             groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)trackBar1).EndInit();
             DrawPanel.ResumeLayout(false);
+            DrawPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -272,5 +290,11 @@
         private PictureBox pictureBox1;
         private Button button5;
         private Button button6;
+        private Button button7;
+        private ColorDialog colorDialog1;
+        private ColorDialog colorDialog2;
+        private ColorDialog colorDialog3;
+        private ColorDialog colorDialog4;
+        private ColorDialog colorDialog5;
     }
 }

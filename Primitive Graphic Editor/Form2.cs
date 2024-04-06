@@ -10,14 +10,20 @@ using System.Windows.Forms;
 
 namespace Primitive_Graphic_Editor
 {
-    public partial class Form2 : Form
+    public partial class ImageSizeForm : Form
     {
 
-        public string N
+        bool _canceled = false;
+        public bool Canceled
+        {
+            get { return _canceled; }
+        }
+
+        public string N 
         {
             get
             {
-                string text = tbFileName.Text; 
+                string text = tbFileName.Text;
                 string value = (text);
                 return value;
             }
@@ -27,8 +33,8 @@ namespace Primitive_Graphic_Editor
         {
             get
             {
-                string text = tbWidth.Text; //tb Width - TextBox for entering width
-                int value = Convert.ToInt32(text);//Convert - static class for converting basic types
+                string text = tbWidth.Text; 
+                int value = Convert.ToInt32(text);
                 return value;
             }
         }
@@ -37,21 +43,26 @@ namespace Primitive_Graphic_Editor
         {
             get
             {
-                string text = tbHeight.Text; //tb Height - TextBox for entering Height
-                int value = Convert.ToInt32(text);//Convert - static class for converting basic types
+                string text = tbHeight.Text; 
+                int value = Convert.ToInt32(text);
                 return value;
             }
         }
 
-        bool _canceled = false;
-        public bool Canceled
-        {
-            get { return _canceled; }
-        }
 
-    public Form2()
+        public ImageSizeForm()
         {
             InitializeComponent();
         }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            
+        }
+
+
+
     }
 }
+
+          /**/

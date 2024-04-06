@@ -1,6 +1,6 @@
 ﻿namespace Primitive_Graphic_Editor
 {
-    partial class Form2
+    partial class ImageSizeForm
     {
         /// <summary>
         /// Required designer variable.
@@ -103,8 +103,9 @@
             button2.TabIndex = 7;
             button2.Text = "Cancel";
             button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click_1;
             // 
-            // Form2
+            // ImageSizeForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -117,7 +118,7 @@
             Controls.Add(tbHeight);
             Controls.Add(tbWidth);
             Controls.Add(tbFileName);
-            Name = "Form2";
+            Name = "ImageSizeForm";
             Text = "Создание изображения";
             ResumeLayout(false);
             PerformLayout();
