@@ -69,6 +69,36 @@ namespace Primitive_Graphic_Editor
 
     }
 
+    class BubleBrush : Brush
+    {
+        public BubleBrush(Color brushColor, int size)
+            : base(brushColor, size)
+        {
+        }
+        public override void Draw(Bitmap image, int x, int y)
+        {
+            int startX = Math.Max(0, x - Size);
+            int endX = Math.Min(image.Width - 1, x + Size);
+            int startY = Math.Max(0, y - Size);
+            int endY = Math.Min(image.Height - 1, y + Size);
+
+            for (int y0 = startY; y0 <= endY; y0++)
+            {
+                double x1 = Math.Sqrt(Size * Size - Math.Pow(y0 - y, 2));
+                image.SetPixel((int)(x + x1), y0, BrushColor);
+                image.SetPixel((int)(x - x1), y0, BrushColor);
+            }
+            for (int x0 = startX; x0 <= endX; x0++)
+            {
+                double y1 = Math.Sqrt(Size * Size - Math.Pow(x0 - x, 2));
+                image.SetPixel(x0, (int)(y + y1), BrushColor);
+                image.SetPixel(x0, (int)(y - y1), BrushColor);
+            }
+        }
+
+    }
+
+
     class StarBrush : Brush
     {
         public StarBrush(Color brushColor, int size)

@@ -37,8 +37,16 @@
             справкаToolStripMenuItem = new ToolStripMenuItem();
             оПрограммеToolStripMenuItem = new ToolStripMenuItem();
             ToolsPanel = new Panel();
+            button12 = new Button();
+            button13 = new Button();
+            button14 = new Button();
+            button15 = new Button();
+            button11 = new Button();
+            button10 = new Button();
+            button9 = new Button();
             button7 = new Button();
             groupBox1 = new GroupBox();
+            button8 = new Button();
             button6 = new Button();
             button5 = new Button();
             button4 = new Button();
@@ -49,10 +57,6 @@
             DrawPanel = new Panel();
             pictureBox1 = new PictureBox();
             colorDialog1 = new ColorDialog();
-            colorDialog2 = new ColorDialog();
-            colorDialog3 = new ColorDialog();
-            colorDialog4 = new ColorDialog();
-            colorDialog5 = new ColorDialog();
             menuStrip1.SuspendLayout();
             ToolsPanel.SuspendLayout();
             groupBox1.SuspendLayout();
@@ -116,6 +120,13 @@
             // 
             // ToolsPanel
             // 
+            ToolsPanel.Controls.Add(button12);
+            ToolsPanel.Controls.Add(button13);
+            ToolsPanel.Controls.Add(button14);
+            ToolsPanel.Controls.Add(button15);
+            ToolsPanel.Controls.Add(button11);
+            ToolsPanel.Controls.Add(button10);
+            ToolsPanel.Controls.Add(button9);
             ToolsPanel.Controls.Add(button7);
             ToolsPanel.Controls.Add(groupBox1);
             ToolsPanel.Dock = DockStyle.Left;
@@ -124,17 +135,89 @@
             ToolsPanel.Size = new Size(165, 462);
             ToolsPanel.TabIndex = 1;
             // 
+            // button12
+            // 
+            button12.BackColor = Color.Green;
+            button12.Location = new Point(127, 283);
+            button12.Name = "button12";
+            button12.Size = new Size(32, 31);
+            button12.TabIndex = 8;
+            button12.UseVisualStyleBackColor = false;
+            button12.Click += button12_Click;
+            // 
+            // button13
+            // 
+            button13.BackColor = Color.Orange;
+            button13.Location = new Point(89, 283);
+            button13.Name = "button13";
+            button13.Size = new Size(32, 31);
+            button13.TabIndex = 7;
+            button13.UseVisualStyleBackColor = false;
+            button13.Click += button13_Click;
+            // 
+            // button14
+            // 
+            button14.BackColor = Color.LightGray;
+            button14.Location = new Point(51, 283);
+            button14.Name = "button14";
+            button14.Size = new Size(32, 31);
+            button14.TabIndex = 6;
+            button14.UseVisualStyleBackColor = false;
+            button14.Click += button14_Click_1;
+            // 
+            // button15
+            // 
+            button15.BackColor = Color.Gray;
+            button15.Location = new Point(13, 283);
+            button15.Name = "button15";
+            button15.Size = new Size(32, 31);
+            button15.TabIndex = 5;
+            button15.UseVisualStyleBackColor = false;
+            button15.Click += button15_Click;
+            // 
+            // button11
+            // 
+            button11.BackColor = Color.Blue;
+            button11.Location = new Point(127, 246);
+            button11.Name = "button11";
+            button11.Size = new Size(32, 31);
+            button11.TabIndex = 4;
+            button11.UseVisualStyleBackColor = false;
+            button11.Click += button11_Click;
+            // 
+            // button10
+            // 
+            button10.BackColor = Color.Red;
+            button10.Location = new Point(89, 246);
+            button10.Name = "button10";
+            button10.Size = new Size(32, 31);
+            button10.TabIndex = 3;
+            button10.UseVisualStyleBackColor = false;
+            button10.Click += button10_Click_1;
+            // 
+            // button9
+            // 
+            button9.BackColor = Color.White;
+            button9.Location = new Point(51, 246);
+            button9.Name = "button9";
+            button9.Size = new Size(32, 31);
+            button9.TabIndex = 2;
+            button9.UseVisualStyleBackColor = false;
+            button9.Click += button9_Click;
+            // 
             // button7
             // 
-            button7.Location = new Point(6, 246);
+            button7.BackColor = Color.Black;
+            button7.Location = new Point(13, 246);
             button7.Name = "button7";
-            button7.Size = new Size(153, 204);
+            button7.Size = new Size(32, 31);
             button7.TabIndex = 1;
-            button7.UseVisualStyleBackColor = true;
+            button7.UseVisualStyleBackColor = false;
             button7.Click += button7_Click;
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(button8);
             groupBox1.Controls.Add(button6);
             groupBox1.Controls.Add(button5);
             groupBox1.Controls.Add(button4);
@@ -149,6 +232,16 @@
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             groupBox1.Text = "Выбор кисти";
+            // 
+            // button8
+            // 
+            button8.Location = new Point(87, 128);
+            button8.Name = "button8";
+            button8.Size = new Size(75, 23);
+            button8.TabIndex = 7;
+            button8.Text = "Пузырь";
+            button8.UseVisualStyleBackColor = true;
+            button8.Click += button8_Click;
             // 
             // button6
             // 
@@ -292,9 +385,13 @@
         private Button button6;
         private Button button7;
         private ColorDialog colorDialog1;
-        private ColorDialog colorDialog2;
-        private ColorDialog colorDialog3;
-        private ColorDialog colorDialog4;
-        private ColorDialog colorDialog5;
+        private Button button8;
+        private Button button11;
+        private Button button10;
+        private Button button9;
+        private Button button12;
+        private Button button13;
+        private Button button14;
+        private Button button15;
     }
 }

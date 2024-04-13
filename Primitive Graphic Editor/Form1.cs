@@ -36,6 +36,11 @@ namespace Primitive_Graphic_Editor
             get { return Color.White; }
         }
 
+        /*Brush DefaultBrush;
+        {
+            get { return _selectedBrush = QuadBrush(SelectedColor, SelectedSize); }
+        }*/
+
         void CreateBlank(int width, int height)
         {
             //сохраняем старую картинку
@@ -94,6 +99,11 @@ namespace Primitive_Graphic_Editor
             _selectedBrush = new QuadBrush(Color.White, SelectedSize);
         }
 
+        private void button8_Click(object sender, EventArgs e)
+        {
+            _selectedBrush = new BubleBrush(SelectedColor, SelectedSize);
+        }
+
         // Обработчик события при нажатии кнопки мыши
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
@@ -128,12 +138,74 @@ namespace Primitive_Graphic_Editor
 
         private void button7_Click(object sender, EventArgs e)
         {
-            //если пользователь выбрал цвет, используем его:
-            if (colorDialog1.ShowDialog() == DialogResult.OK)
+            if (_selectedBrush == null)
             {
-                //для удобства, подкрашиваем кнопку выбранным цветом
-                button7.BackColor = colorDialog1.Color;
+                _selectedBrush = new QuadBrush(Color.Black, SelectedSize);
             }
+            _selectedBrush.BrushColor = Color.Black;
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            if (_selectedBrush == null)
+            {
+                _selectedBrush = new QuadBrush(Color.White, SelectedSize); 
+            }
+            _selectedBrush.BrushColor = Color.White;
+        }
+
+        private void button10_Click_1(object sender, EventArgs e)
+        {
+            if (_selectedBrush == null)
+            {
+                _selectedBrush = new QuadBrush(Color.Red, SelectedSize);
+            }
+            _selectedBrush.BrushColor = Color.Red;
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            if (_selectedBrush == null)
+            {
+                _selectedBrush = new QuadBrush(Color.Blue, SelectedSize);
+            }
+            _selectedBrush.BrushColor = Color.Blue;
+        }
+
+        private void button15_Click(object sender, EventArgs e)
+        {
+            if (_selectedBrush == null)
+            {
+                _selectedBrush = new QuadBrush(Color.Gray, SelectedSize);
+            }
+            _selectedBrush.BrushColor = Color.Gray;
+        }
+
+        private void button14_Click_1(object sender, EventArgs e)
+        {
+            if (_selectedBrush == null)
+            {
+                _selectedBrush = new QuadBrush(Color.LightGray, SelectedSize);
+            }
+            _selectedBrush.BrushColor = Color.LightGray;
+        }
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+            if (_selectedBrush == null)
+            {
+                _selectedBrush = new QuadBrush(Color.Orange, SelectedSize);
+            }
+            _selectedBrush.BrushColor = Color.Orange;
+        }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+            if (_selectedBrush == null)
+            {
+                _selectedBrush = new QuadBrush(Color.Green, SelectedSize);
+            }
+            _selectedBrush.BrushColor = Color.Green;
         }
     }
 }
