@@ -59,10 +59,5 @@ namespace Primitive_Graphic_Editor
         {
             
         }
-
-
-
     }
 }
-
-          /**/

@@ -145,6 +145,8 @@ namespace Primitive_Graphic_Editor
             _selectedBrush.BrushColor = Color.Black;
         }
 
+
+
         private void button9_Click(object sender, EventArgs e)
         {
             if (_selectedBrush == null)
@@ -206,6 +208,38 @@ namespace Primitive_Graphic_Editor
                 _selectedBrush = new QuadBrush(Color.Green, SelectedSize);
             }
             _selectedBrush.BrushColor = Color.Green;
+        }
+
+        private void сохранитьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (pictureBox1.Image != null)
+            {
+                SaveFileDialog saveFileDialog = new SaveFileDialog();
+                saveFileDialog.Filter = "Изображение (*.bmp, *.jpg, *.png)|*.bmp;*.jpg;*.png";
+                saveFileDialog.FileName = "Безыменный";
+
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    string filePath = saveFileDialog.FileName;
+                    pictureBox1.Image.Save(filePath);
+                }
+            }
+            else
+            {
+                MessageBox.Show("В picturebox нет изображения для сохранения.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void выходToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Спросить пользователя, действительно ли он хочет выйти
+            DialogResult result = MessageBox.Show("Вы уверены, что хотите выйти из программы?", "Выход", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            // Если пользователь подтвердил выход, закрыть форму
+            if (result == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
         }
     }
 }
